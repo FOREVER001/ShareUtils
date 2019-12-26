@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.mob.sdk'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+MobSDK {
+    appKey "1ee955b364978"
+    appSecret "9142bb10b6953f6f9aa340fc380b10da"
+
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+            Wechat {
+                appId "wxc77a692add7e336b1"
+                appSecret "b7d209b92fe69b78576004d077d30a6b1"
+//                appId "wxc77a692add7e336b"
+//                appSecret "b7d209b92fe69b78576004d077d30a6b"
+            }
+            QQ {
+                appId "1106278919"
+                appKey "YbADv4gmXP3CwwEz"
+            }
+            QZone {
+                appId "1106278919"
+                appKey "YbADv4gmXP3CwwEz"
+            }
+        }
+    }
+}
